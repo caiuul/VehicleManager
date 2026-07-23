@@ -1,8 +1,8 @@
 package com.example.demo.controller;
 
-import com.example.demo.dtos.LoginRequestDTO;
-import com.example.demo.dtos.LoginResponseDTO;
-import com.example.demo.dtos.RegisterRequestDTO;
+import com.example.demo.dtos.auth.LoginRequestDTO;
+import com.example.demo.dtos.auth.LoginResponseDTO;
+import com.example.demo.dtos.auth.RegisterRequestDTO;
 import com.example.demo.entities.User;
 import com.example.demo.security.TokenService;
 import com.example.demo.services.AuthService;

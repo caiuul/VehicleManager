@@ -1,10 +1,9 @@
 package com.example.demo.services;
 
-import com.example.demo.dtos.LoginRequestDTO;
-import com.example.demo.dtos.RegisterRequestDTO;
+import com.example.demo.dtos.auth.LoginRequestDTO;
+import com.example.demo.dtos.auth.RegisterRequestDTO;
 import com.example.demo.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.example.demo.repository.UserRepository;
