@@ -1,4 +1,8 @@
 package com.example.demo.dtos.car;
 
-public record DeleteCarRequestDTO(Long id) {
+import jakarta.validation.constraints.NotNull;
+
+public record DeleteCarRequestDTO(
+        @NotNull(message = "Id is required.")
+        Long id) {
 }

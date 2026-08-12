@@ -16,6 +16,6 @@ public record CarUpdateRequestDTO(
 
         @NotNull(message = "Year is required")
         @Min(value = 1950, message = "Year must be greater than 1950")
-        Integer Year
+        Integer year
 ) {
 }

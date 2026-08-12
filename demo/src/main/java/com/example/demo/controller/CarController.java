@@ -53,8 +53,8 @@ public class CarController {
 
     @PutMapping("/updatecar/{id}")
     public ResponseEntity<CarResponseDTO> atualizarCarro(
-            @Valid
             @PathVariable Long id,
+            @Valid
             @RequestBody CarUpdateRequestDTO dto,
             @AuthenticationPrincipal User usuarioLogado) {
         CarResponseDTO response = carService.atualizarCarro(id, dto, usuarioLogado);
