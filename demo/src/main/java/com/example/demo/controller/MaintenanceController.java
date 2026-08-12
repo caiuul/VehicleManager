@@ -5,6 +5,7 @@ import com.example.demo.dtos.car.MaintenanceRequestDTO;
 import com.example.demo.dtos.car.MaintenanceResponseDTO;
 import com.example.demo.entities.User;
 import com.example.demo.services.MaintenanceService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -23,8 +24,9 @@ public class MaintenanceController {
 
     @PostMapping("/addMaint")
     public ResponseEntity<MaintenanceResponseDTO> addMaintenance(
+            @Valid
             @RequestBody MaintenanceRequestDTO dto,
-            @AuthenticationPrincipal User usuarioLogado){
+            @AuthenticationPrincipal User usuarioLogado) {
         MaintenanceResponseDTO response = maintenanceService.adicionarManutencao(dto, usuarioLogado);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
@@ -32,7 +34,7 @@ public class MaintenanceController {
     @GetMapping("/listMaint/{carId}")
     public ResponseEntity<List<MaintenanceResponseDTO>> getMaintenance(
             @PathVariable Long carId,
-            @AuthenticationPrincipal User usuarioLogado){
+            @AuthenticationPrincipal User usuarioLogado) {
 
         List<MaintenanceResponseDTO> response = maintenanceService.listarManutencoesDoCarro(carId, usuarioLogado);
         return ResponseEntity.ok(response);
@@ -40,6 +42,7 @@ public class MaintenanceController {
 
     @DeleteMapping("/deleteMaint")
     public ResponseEntity<Void> deleteMaintenance(
+            @Valid
             @RequestBody DeleteMaintenanceRequestDTO dto,
             @AuthenticationPrincipal User usuarioLogado) {
 

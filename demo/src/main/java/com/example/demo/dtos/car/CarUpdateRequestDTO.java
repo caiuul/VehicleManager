@@ -5,7 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
-public record CarRequestDTO(
+public record CarUpdateRequestDTO(
 
         @NotBlank(message = "Model is required")
         String model,
@@ -16,6 +16,6 @@ public record CarRequestDTO(
 
         @NotNull(message = "Year is required")
         @Min(value = 1950, message = "Year must be greater than 1950")
-        Integer year
+        Integer Year
 ) {
 }

@@ -3,9 +3,11 @@ package com.example.demo.controller;
 
 import com.example.demo.dtos.car.CarRequestDTO;
 import com.example.demo.dtos.car.CarResponseDTO;
-import com.example.demo.dtos.car.DeleteCarRequestDTO;
+import com.example.demo.dtos.car.CarUpdateRequestDTO;
 import com.example.demo.entities.User;
 import com.example.demo.services.CarService;
+import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 public class CarController {
 
@@ -24,6 +27,7 @@ public class CarController {
 
     @PostMapping("/addcar")
     public ResponseEntity<CarResponseDTO> adicionarCarro(
+            @Valid
             @RequestBody CarRequestDTO dto,
             @AuthenticationPrincipal User usuarioLogado) {
         CarResponseDTO response = carService.adicionarCarro(dto, usuarioLogado);
@@ -38,15 +42,24 @@ public class CarController {
         return ResponseEntity.ok(response);
     }
 
-    @DeleteMapping("/deletecar")
-    public ResponseEntity<CarResponseDTO> deletarCarro(
-            @AuthenticationPrincipal User usuarioLogado,
-            @RequestBody DeleteCarRequestDTO dto) {
+    @DeleteMapping("/deletecar/{id}")
+    public ResponseEntity<Void> deletarCarro(
+            @PathVariable Long id,
+            @AuthenticationPrincipal User usuarioLogado) {
 
-        carService.deletarCarro(usuarioLogado, dto.id());
+        carService.deletarCarro(id, usuarioLogado);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
+    @PutMapping("/updatecar/{id}")
+    public ResponseEntity<CarResponseDTO> atualizarCarro(
+            @Valid
+            @PathVariable Long id,
+            @RequestBody CarUpdateRequestDTO dto,
+            @AuthenticationPrincipal User usuarioLogado) {
+        CarResponseDTO response = carService.atualizarCarro(id, dto, usuarioLogado);
+        return ResponseEntity.ok(response);
+    }
 
 
 }

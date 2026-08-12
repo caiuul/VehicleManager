@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 import java.util.Optional;
 
-public interface MaintenanceRepository extends JpaRepository<Maintenance,Long> {
+public interface MaintenanceRepository extends JpaRepository<Maintenance, Long> {
     List<Maintenance> findByCar(Car car);
 
     Optional<Maintenance> findByIdAndCar(Long id, Car car);

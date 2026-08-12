@@ -3,10 +3,11 @@ package com.example.demo.services;
 import com.example.demo.dtos.auth.LoginRequestDTO;
 import com.example.demo.dtos.auth.RegisterRequestDTO;
 import com.example.demo.entities.User;
+import com.example.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import com.example.demo.repository.UserRepository;
+
 @Service
 public class AuthService {
     @Autowired
@@ -19,7 +20,7 @@ public class AuthService {
         User user = userRepository.findByName(loginRequestDTO.name())
                 .orElseThrow(() -> new RuntimeException("Usuario nao encontrado."));
 
-        if(!passwordEncoder.matches(loginRequestDTO.password(), user.getPassword())) {
+        if (!passwordEncoder.matches(loginRequestDTO.password(), user.getPassword())) {
             throw new RuntimeException("Senha incorreta.");
         }
 
@@ -28,7 +29,7 @@ public class AuthService {
     }
 
     public String efetuarCadastro(RegisterRequestDTO registerRequestDTO) {
-        if(userRepository.findByName(registerRequestDTO.name()).isPresent()){
+        if (userRepository.findByName(registerRequestDTO.name()).isPresent()) {
             throw new RuntimeException("Este nome ja esta em uso");
         }
 

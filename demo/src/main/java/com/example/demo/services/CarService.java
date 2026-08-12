@@ -2,12 +2,11 @@ package com.example.demo.services;
 
 import com.example.demo.dtos.car.CarRequestDTO;
 import com.example.demo.dtos.car.CarResponseDTO;
+import com.example.demo.dtos.car.CarUpdateRequestDTO;
 import com.example.demo.entities.Car;
 import com.example.demo.entities.User;
 import com.example.demo.mapper.CarMapper;
 import com.example.demo.repository.CarRepository;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -38,14 +37,24 @@ public class CarService {
 
     }
 
-    public ResponseEntity deletarCarro(User usuarioLogado, Long id) {
+    public void deletarCarro(Long id, User usuarioLogado) {
         Car car = carRepository.findByIdAndUser(id, usuarioLogado)
                 .orElseThrow(() -> new RuntimeException("Carro não encontrado"));
 
         carRepository.delete(car);
-        return ResponseEntity.status(HttpStatus.OK).body("Carro deletado com sucesso");
     }
 
+    public CarResponseDTO atualizarCarro(Long id, CarUpdateRequestDTO dto, User usuarioLogado) {
+        Car car = carRepository.findByIdAndUser(id, usuarioLogado)
+                .orElseThrow(() -> new RuntimeException("Carro não encontrado"));
+
+        car.setModelo(dto.model());
+        car.setPlaca(dto.licensePlate());
+        car.setAno(dto.Year());
+
+        Car atualizado = carRepository.save(car);
+        return carMapper.toResponseDTO(atualizado);
+    }
 
 
 }

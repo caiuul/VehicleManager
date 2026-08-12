@@ -8,7 +8,6 @@ import com.example.demo.entities.User;
 import com.example.demo.mapper.MaintenanceMapper;
 import com.example.demo.repository.CarRepository;
 import com.example.demo.repository.MaintenanceRepository;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,7 +29,7 @@ public class MaintenanceService {
 
     public MaintenanceResponseDTO adicionarManutencao(MaintenanceRequestDTO dto, User usuarioLogado) {
         Car car = carRepository.findByIdAndUser(dto.carId(), usuarioLogado)
-                .orElseThrow(()-> new RuntimeException("Carro não encontrado para esse usuário"));
+                .orElseThrow(() -> new RuntimeException("Carro não encontrado para esse usuário"));
 
         Maintenance maintenance = maintenanceMapper.toEntity(dto);
         maintenance.setCar(car);
