@@ -1,3 +1,8 @@
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
+
 # VehicleManager
 
 Aplicação para registro e gerenciamento de veículos pessoais, com autenticação JWT. Permite cadastro de usuários, login seguro, cadastro/listagem/atualização/remoção de carros e registro de manutenções.
@@ -77,8 +82,3 @@ spring.datasource.url=jdbc:postgresql://localhost:5433/nome_do_banco
 **Próximos passos:**
 - [ ] Documentação da API com Swagger/OpenAPI
 - [ ] Deploy (Render ou Railway)
-
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
-![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
