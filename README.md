@@ -77,7 +77,3 @@ spring.datasource.url=jdbc:postgresql://localhost:5433/nome_do_banco
 **Próximos passos:**
 - [ ] Documentação da API com Swagger/OpenAPI
 - [ ] Deploy (Render ou Railway)
-
-![Top Language](https://img.shields.io/github/languages/top/caiuul/VehicleManager)
-![Language Count](https://img.shields.io/github/languages/count/caiuul/VehicleManager)
-![Repo Size](https://img.shields.io/github/repo-size/caiuul/VehicleManager)
