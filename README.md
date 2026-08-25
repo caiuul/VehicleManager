@@ -68,24 +68,12 @@ O banco PostgreSQL local roda na porta `5433` (em vez da padrão `5432`):
 spring.datasource.url=jdbc:postgresql://localhost:5433/nome_do_banco
 ```
 
-## Observação sobre nomenclatura
-
-Os DTOs de request (`CarRequestDTO`, `CarUpdateRequestDTO`) usam campos em inglês (`model`, `licensePlate`, `year`), enquanto a entidade `Car` e o `CarResponseDTO` usam português (`modelo`, `placa`, `ano`). O MapStruct faz essa conversão — é um ponto de inconsistência de nomenclatura a padronizar futuramente.
-
 ## Status atual / Roadmap
 
 **Em andamento:**
-- [ ] Bean Validation em `CarUpdateRequestDTO`, `DeleteCarRequestDTO`, `DeleteMaintenanceRequestDTO` e `MaintenanceRequestDTO`
 - [ ] Handler global de exceções com `@ControllerAdvice`
 - [ ] Testes automatizados (JUnit, Mockito, Testcontainers)
 
 **Próximos passos:**
 - [ ] Documentação da API com Swagger/OpenAPI
 - [ ] Deploy (Render ou Railway)
-
-**Bug conhecido:**
-- `@Valid` em `CarController.atualizarCarro()` está posicionado no `@PathVariable` em vez do `@RequestBody`
-
-## Autor
-
-Projeto desenvolvido por Caiul como parte de um portfólio para vagas de desenvolvedor júnior/estagiário.
