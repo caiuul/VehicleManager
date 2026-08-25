@@ -1,7 +1,6 @@
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
-![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
+![Top Language](https://img.shields.io/github/languages/top/caiuul/VehicleManager)
+![Language Count](https://img.shields.io/github/languages/count/caiuul/VehicleManager)
+![Repo Size](https://img.shields.io/github/repo-size/caiuul/VehicleManager)
 
 # VehicleManager
 
